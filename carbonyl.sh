@@ -1,6 +1,7 @@
 #!/bin/bash
 # Carbonyl Terminal 1.0
-export START_PAGE="https://start.duckduckgo.com/"
+export START_PAGE=${1:-"https://start.duckduckgo.com/"}
+
 if [[ "$USER_HOST" == "" ]]; then
 	echo "Provide USER_HOST"
 	exit 1
