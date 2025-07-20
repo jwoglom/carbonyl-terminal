@@ -21,7 +21,7 @@ if [[ ! -f /tmp/carbonyl_rsa ]]; then
 fi
 export MOSH_TITLE_NOPREFIX=1
 
-SSH_CMD="ssh -C -i /tmp/carbonyl_rsa -p 2222 -o StrictHostKeyChecking=no -o SendEnv=START_PAGE"
+SSH_CMD="ssh -C -i /tmp/carbonyl_rsa -p 2222 -o StrictHostKeyChecking=no -o SendEnv=START_PAGE -o SendEnv=TMUX -o SendEnv=CARBONYL_ARGS"
 echo "Connecting to Carbonyl..."
 echo "USER_HOST=$USER_HOST"
 echo "START_PAGE=$START_PAGE"
