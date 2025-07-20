@@ -1,6 +1,7 @@
 #!/bin/bash
 # Carbonyl Terminal 1.0
 export START_PAGE=${1:-"https://start.duckduckgo.com/"}
+export CARBONYL_ARGS=${@:2}
 export USER_HOST=carbonyl-ssh.service.consul
 
 if [[ "$USER_HOST" == "" ]]; then
@@ -25,6 +26,7 @@ SSH_CMD="ssh -C -i /tmp/carbonyl_rsa -p 2222 -o StrictHostKeyChecking=no -o Send
 echo "Connecting to Carbonyl..."
 echo "USER_HOST=$USER_HOST"
 echo "START_PAGE=$START_PAGE"
+echo "CARBONYL_ARGS=$CARBONYL_ARGS"
 if [ -z "$NOMOSH" ]; then
 	echo "Trying mosh connection..."
 	mosh -p 60000:60010 --ssh="$SSH_CMD" $USER_HOST
